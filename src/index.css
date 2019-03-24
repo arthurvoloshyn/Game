@@ -9,19 +9,20 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 html, body {
 	margin: 0;
 	height: 100%;
+	overflow: hidden;
 }
 
 body {
 	background-color: #ffffff;
 	font-family: Helvetica, Arial, sans-serif;
-  text-align: center;
+  	text-align: center;
 }
 
 #app {
@@ -107,23 +108,5 @@ button:active {
   font-size: 16px;
   font-family: 'Oxygen', sans-serif;
   letter-spacing: 2px;
-}
-
-textarea {
-	height: auto;
-	margin-top: 25px;
-	max-width: 90%;
-	display: block;
-	position: relative;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-
-h2 {
-	width: 290px;
-	max-width: 90%;
-	margin: 20px auto;
-	overflow-wrap: break-word;
 }
 

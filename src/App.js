@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { TopNumber } from './TopNumber';
 import { Display } from './Display';
 import { Target } from './Target';
 import { random, clone } from './helpers'; 
-import { Enthused } from './Enthused';
 
 const fieldStyle = {
   position: 'absolute',
@@ -15,30 +13,24 @@ const fieldStyle = {
   height: '60%',
 };
 
-class App extends Component {
-    constructor(props) {
-      super(props);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-      this.state = {
-        game: false,
-        targets: {},
-        latestClick: 0,
+    this.state = {
+      game: false,
+      targets: {},
+      latestClick: 0
+    };
 
-        enthused: false,
-        text: ''
-      };
+    this.intervals = null;
 
-      this.intervals = null;
-
-      this.hitTarget = this.hitTarget.bind(this);
-      this.startGame = this.startGame.bind(this);
-      this.endGame = this.endGame.bind(this);
-
-      this.toggleEnthusiasm = this.toggleEnthusiasm.bind(this);
-      this.addText = this.addText.bind(this);
-      this.handleChange = this.handleChange.bind(this);
+    this.hitTarget = this.hitTarget.bind(this);
+    this.startGame = this.startGame.bind(this);
+    this.endGame = this.endGame.bind(this);
   }
-
+  
+  
   componentDidUpdate(prevProps, prevState) {
     if (this.state.latestClick <          prevState.latestClick) {
   this.endGame();
@@ -88,31 +80,8 @@ class App extends Component {
     this.intervals = [];
   }
 
-
-
-  toggleEnthusiasm() {
-    this.setState({
-      enthused: !this.state.enthused
-    });
-  }
-
-  setText(text) {
-    this.setState({ text: text });
-  }
-
-  addText(newText) {
-    let text = this.state.text + newText;
-    this.setState({ text: text });
-  }
-
-  handleChange(e) {
-    this.setText(e.target.value);
-  }
-
-
   render() {
-
-        let buttonStyle = {
+    let buttonStyle = {
       display: this.state.game ? 'none' : 'inline-block'
     };
     let targets = [];
@@ -123,58 +92,16 @@ class App extends Component {
           key={key} />
       );
     }
-
-
-    let button;
-    if (this.state.enthused) {
-      button = (
-        <Enthused toggle={this.toggleEnthusiasm} addText={this.addText} />
-      );
-    } else {
-      button = (
-        <button onClick={this.toggleEnthusiasm}>
-          Add Enthusiasm!
-        </button>
-      );
-    }
-
-    
-
     return (
       <div>
-         <div>
-          <TopNumber number={this.state.latestClick} game={this.state.game} />
-          <Display number={this.state.latestClick} />
-          <button onClick={this.startGame} style={buttonStyle}>
-            New Game 
-          </button>
-          <div style={fieldStyle} onClick={this.hitTarget}>
-            {targets}
-          </div>
+        <TopNumber number={this.state.latestClick} game={this.state.game} />
+        <Display number={this.state.latestClick} />
+        <button onClick={this.startGame} style={buttonStyle}>
+          New Game 
+        </button>
+        <div style={fieldStyle} onClick={this.hitTarget}>
+          {targets}
         </div>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>    
-        <div>
-          <textarea rows="7" cols="40" value={this.state.text} 
-            onChange={this.handleChange}>
-          </textarea>
-          {button}
-          <h2>{this.state.text}</h2>
-        </div>            
       </div>
     );
   }
