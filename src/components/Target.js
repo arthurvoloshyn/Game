@@ -1,18 +1,21 @@
-import React from 'react';
-import { random } from './helpers';
+import React, { Component } from 'react';
+import { random } from '../utils/helpers';
 import PropTypes from 'prop-types';
 
-export class Target extends React.Component {
+export class Target extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.number != nextProps.number;
   }
 
   render() {
-    let visibility = this.props.number ? 'visible' : 'hidden';
+    const { number } = this.props;
+    let visibility = number ? 'visible' : 'hidden';
+    const rand = `${random(0, 100)}%`;
+
     let style = {
       position: 'absolute',
-      left: random(0, 100) + '%',
-      top: random(0, 100) + '%',
+      left: rand,
+      top: rand,
       fontSize: 40,
       cursor: 'pointer',
       visibility: visibility
@@ -20,7 +23,7 @@ export class Target extends React.Component {
 
     return (
       <span style={style} className="target">
-        {this.props.number}
+        {number}
       </span>
     )
   }

@@ -1,11 +1,3 @@
-## Install
-
-### 1. Enter the root of folder
-
-### 2. `npm install`
-
-### 3. `npm start`
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

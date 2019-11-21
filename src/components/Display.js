@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 
 const style = {
 	fontSize: 110,
-	color:    'lightgrey',
+	color: 'lightgrey',
 	position: 'absolute',
-	top: '30%',
-	transform: 'translate(-50%, 0%)',
-	left: '50%',
-	marginRight: '-50%'
+	top: '30%'
 };
 
-export const Display = (props) => {
+export const Display = ({ number }) => {
 	return (
 		<div style={style}>
-			{props.number}
+			{number}
 		</div>
 	);
 }
