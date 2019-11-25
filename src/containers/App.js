@@ -5,9 +5,11 @@ import { Target } from '../components/Target';
 import { random, clone } from '../utils/helpers';
 import './css/App.css';
 
+const width = window.innerWidth < 450 ? 150 : 250;
+
 const fieldStyle = {
   position: 'absolute',
-  width: 250,
+  width,
   bottom: 60,
   left: 10,
   height: '60%',
