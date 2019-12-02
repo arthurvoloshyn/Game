@@ -36,20 +36,22 @@ class App extends Component {
     this.intervals.push(setInterval(() => {
       let targets = clone(this.state.targets);
       let num = random(1, 1000 * 1000);
-      targets[key] = targets[key] != 0 ? 0 : num;
+      targets[key] = targets[key] !== 0 ? 0 : num;
       this.setState({ targets: targets });
     }, ms));
   }
 
-  hitTarget = e => {
-    const { className, innerText } = e.target;
-
-    if (className != 'target') return;
+  hitTarget = ({ target: { className, innerText } }) => {
+    if (className !== 'target') return;
     let num = parseInt(innerText);
+
+    /* eslint-disable no-unused-vars */
     for (let target in this.state.targets) {
       let key = Math.random().toFixed(4);
       this.createTarget(key);
     }
+    /* eslint-enable */
+
     this.setState({ latestClick: num });
   }
 

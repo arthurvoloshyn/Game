@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export class Target extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.number != nextProps.number;
+    return this.props.number !== nextProps.number;
   }
 
   render() {
