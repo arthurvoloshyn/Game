@@ -3,8 +3,8 @@ import { random } from '../utils/helpers';
 import PropTypes from 'prop-types';
 
 export class Target extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.number !== nextProps.number;
+  shouldComponentUpdate({ number }, nextState) {
+    return this.props.number !== number;
   }
 
   render() {

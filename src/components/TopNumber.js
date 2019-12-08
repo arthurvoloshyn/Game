@@ -7,18 +7,18 @@ const white = 'rgb(255, 255, 255)';
 export class TopNumber extends Component {
   state = { 'highest': 0 };
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate({ game }, nextState) {
     if (document.body.style.background !== yellow && this.state.highest >= 950 * 1000) {
       document.body.style.background = yellow;
-    } else if (!this.props.game && nextProps.game) {
+    } else if (!this.props.game && game) {
       document.body.style.background = white;
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.number > this.state.highest) {
+  componentWillReceiveProps({ number }) {
+    if (number > this.state.highest) {
       this.setState({
-        highest: nextProps.number
+        highest: number
       });
     }
   }

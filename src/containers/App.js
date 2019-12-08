@@ -25,8 +25,8 @@ class App extends Component {
 
   intervals = null;
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.latestClick < prevState.latestClick) {
+  componentDidUpdate(prevProps, { latestClick }) {
+    if (this.state.latestClick < latestClick) {
       this.endGame();
     }
   }
