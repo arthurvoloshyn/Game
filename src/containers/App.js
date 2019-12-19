@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
 import { TopNumber } from '../components/TopNumber';
 import { Display } from '../components/Display';
 import { Target } from '../components/Target';
 import { random, clone } from '../utils/helpers';
+
 import './css/App.css';
 
 const width = window.innerWidth < 450 ? 150 : 250;
@@ -12,11 +14,10 @@ const fieldStyle = {
   width,
   bottom: 60,
   left: 10,
-  height: '60%',
+  height: '60%'
 };
 
 class App extends Component {
-
   state = {
     game: false,
     targets: {},
@@ -26,44 +27,51 @@ class App extends Component {
   intervals = null;
 
   componentDidUpdate(prevProps, { latestClick }) {
-    if (this.state.latestClick < latestClick) {
+    const { latestClick: click } = this.state;
+
+    if (click < latestClick) {
       this.endGame();
     }
   }
 
   createTarget = (key, ms) => {
     ms = ms || random(500, 2000);
-    this.intervals.push(setInterval(() => {
-      let targets = clone(this.state.targets);
-      let num = random(1, 1000 * 1000);
-      targets[key] = targets[key] !== 0 ? 0 : num;
-      this.setState({ targets: targets });
-    }, ms));
-  }
+
+    this.intervals.push(
+      setInterval(() => {
+        const { targets: items } = this.state;
+        const targets = clone(items);
+        const num = random(1, 1000 * 1000);
+        targets[key] = targets[key] !== 0 ? 0 : num;
+        this.setState({ targets });
+      }, ms)
+    );
+  };
 
   hitTarget = ({ target: { className, innerText } }) => {
     if (className !== 'target') return;
-    let num = parseInt(innerText);
+    const num = parseInt(innerText);
+    const { targets } = this.state;
 
     /* eslint-disable no-unused-vars */
-    for (let target in this.state.targets) {
-      let key = Math.random().toFixed(4);
+    for (const target in targets) {
+      const key = Math.random().toFixed(4);
       this.createTarget(key);
     }
     /* eslint-enable */
 
     this.setState({ latestClick: num });
-  }
+  };
 
   startGame = () => {
     this.createTarget('first', 750);
     this.setState({
       game: true
     });
-  }
+  };
 
   endGame = () => {
-    this.intervals.forEach((int) => {
+    this.intervals.forEach(int => {
       clearInterval(int);
     });
     this.intervals = [];
@@ -72,25 +80,22 @@ class App extends Component {
       targets: {},
       latestClick: 0
     });
-  }
+  };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.intervals = [];
   }
 
   render() {
     const { game, latestClick, targets } = this.state;
-    let buttonStyle = {
+    const buttonStyle = {
       display: game ? 'none' : 'inline-block'
     };
-    let targetItems = [];
-    for (let key in targets) {
-      targetItems.push(
-        <Target
-          number={targets[key]}
-          key={key} />
-      );
+    const targetItems = [];
+    for (const key in targets) {
+      targetItems.push(<Target number={targets[key]} key={key} />);
     }
+
     return (
       <div>
         <TopNumber number={latestClick} game={game} />

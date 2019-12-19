@@ -5,18 +5,24 @@ const yellow = 'rgb(255, 215, 18)';
 const white = 'rgb(255, 255, 255)';
 
 export class TopNumber extends Component {
-  state = { 'highest': 0 };
+  state = { highest: 0 };
 
-  componentWillUpdate({ game }, nextState) {
-    if (document.body.style.background !== yellow && this.state.highest >= 950 * 1000) {
+  UNSAFE_componentWillUpdate({ game }, nextState) {
+    const { background } = document.body.style;
+    const { highest } = this.state;
+    const { game: play } = this.props;
+
+    if (background !== yellow && highest >= 950 * 1000) {
       document.body.style.background = yellow;
-    } else if (!this.props.game && game) {
+    } else if (!play && game) {
       document.body.style.background = white;
     }
   }
 
-  componentWillReceiveProps({ number }) {
-    if (number > this.state.highest) {
+  UNSAFE_componentWillReceiveProps({ number }) {
+    const { highest } = this.state;
+
+    if (number > highest) {
       this.setState({
         highest: number
       });
@@ -24,15 +30,18 @@ export class TopNumber extends Component {
   }
 
   render() {
-    return (
-      <h1>
-        Top Number: {this.state.highest}
-      </h1>
-    );
+    const { highest } = this.state;
+
+    return <h1>Top Number: {highest}</h1>;
   }
 }
 
 TopNumber.propTypes = {
   number: PropTypes.number,
   game: PropTypes.bool
+};
+
+TopNumber.defaultProps = {
+  number: 0,
+  game: false
 };
