@@ -7,7 +7,7 @@ const white = 'rgb(255, 255, 255)';
 export class TopNumber extends Component {
   state = { highest: 0 };
 
-  UNSAFE_componentWillUpdate({ game }, nextState) {
+  UNSAFE_componentWillUpdate({ game }) {
     const { background } = document.body.style;
     const { highest } = this.state;
     const { game: propsGame } = this.props;

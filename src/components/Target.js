@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { random } from '../utils/helpers';
 
 export class Target extends Component {
-  shouldComponentUpdate({ number }, nextState) {
-    const { number: digit } = this.props;
+  shouldComponentUpdate({ number }) {
+    const { number: propsNumber } = this.props;
 
-    return digit !== number;
+    return propsNumber !== number;
   }
 
   render() {
