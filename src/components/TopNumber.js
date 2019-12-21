@@ -10,11 +10,11 @@ export class TopNumber extends Component {
   UNSAFE_componentWillUpdate({ game }, nextState) {
     const { background } = document.body.style;
     const { highest } = this.state;
-    const { game: play } = this.props;
+    const { game: propsGame } = this.props;
 
     if (background !== yellow && highest >= 950 * 1000) {
       document.body.style.background = yellow;
-    } else if (!play && game) {
+    } else if (!propsGame && game) {
       document.body.style.background = white;
     }
   }

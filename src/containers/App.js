@@ -27,9 +27,9 @@ class App extends Component {
   intervals = null;
 
   componentDidUpdate(prevProps, { latestClick }) {
-    const { latestClick: click } = this.state;
+    const { latestClick: stateLatestClick } = this.state;
 
-    if (click < latestClick) {
+    if (stateLatestClick < latestClick) {
       this.endGame();
     }
   }
@@ -39,8 +39,8 @@ class App extends Component {
 
     this.intervals.push(
       setInterval(() => {
-        const { targets: items } = this.state;
-        const targets = clone(items);
+        const { targets: stateTargets } = this.state;
+        const targets = clone(stateTargets);
         const num = random(1, 1000 * 1000);
         targets[key] = targets[key] !== 0 ? 0 : num;
         this.setState({ targets });

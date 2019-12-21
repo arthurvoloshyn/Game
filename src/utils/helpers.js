@@ -1,5 +1,5 @@
 export const random = (min, max) => {
-  let r = Math.random();
+  const r = Math.random();
   return Math.floor(r * (max - min) + min);
 };
 
@@ -8,7 +8,7 @@ export const exists = x => {
 };
 
 export const clone = obj => {
-  let newObj = {};
+  const newObj = {};
   for (const prop in obj) {
     if (obj.hasOwnProperty(prop)) {
       newObj[prop] = obj[prop];
