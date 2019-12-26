@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/Game/static/js/runtime~main.697af624.js"
   },
   {
-    "revision": "3a2bcef55e9bc3e59fbf",
-    "url": "/Game/static/js/main.d1eafb37.chunk.js"
+    "revision": "6133dce791583a6ccf69",
+    "url": "/Game/static/js/main.d7f12584.chunk.js"
   },
   {
     "revision": "477d3cfdba83b1e0f343",
     "url": "/Game/static/js/2.345f8e30.chunk.js"
   },
   {
-    "revision": "3a2bcef55e9bc3e59fbf",
-    "url": "/Game/static/css/main.26133d9f.chunk.css"
+    "revision": "6133dce791583a6ccf69",
+    "url": "/Game/static/css/main.c7567af8.chunk.css"
   },
   {
-    "revision": "51f60860ec6c12ba8ce86f0f4ae8fdca",
+    "revision": "32eca06538a9e5aa645b323804df4acc",
     "url": "/Game/index.html"
   }
 ];
