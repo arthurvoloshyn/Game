@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { TopNumber } from '../components/TopNumber';
-import { Display } from '../components/Display';
-import { Target } from '../components/Target';
-import { random, clone } from '../utils/helpers';
+import { TopNumber } from '../TopNumber';
+import { Display } from '../../components/Display';
+import { Target } from '../../components/Target';
+import { random, clone } from '../../utils/helpers';
 
 import './css/App.css';
 

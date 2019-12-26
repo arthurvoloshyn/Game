@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { random } from '../utils/helpers';
+import { random } from '../../utils/helpers';
 
 export class Target extends Component {
   shouldComponentUpdate({ number }) {
