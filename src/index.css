@@ -52,8 +52,8 @@ nav a {
 }
 
 button {
-  background-color: #f4595b;
-  border-bottom: 4px solid #c24648;
+  background-color: #c24648;
+  border-bottom: 4px solid #9c2c2e;
   border-radius: 8px;
   color: #fff;
   display: inline-block;
@@ -70,29 +70,11 @@ button {
 button:hover {
   background-color: #ff7375;
   border: none;
-  border-bottom: 4px solid #c24648;
-  border-radius: 8px;
-  color: #fff;
-  display: inline-block;
-  font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
+  border-bottom: 4px solid #9c2c2e;
 }
 
 button:active {
-  background-color: #c24648;
+  background-color: #9c2c2e;
   border: none;
-  border-bottom: 4px solid #c24648;
-  border-radius: 8px;
-  color: #ccc;
-  display: inline-block;
-  font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
+  border-bottom: 4px solid #9c2c2e;
 }
