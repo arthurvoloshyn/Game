@@ -16,10 +16,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject",
-    "lint:styles": "stylelint --fix --syntax=css src/**/*.css",
+    "lint:styles": "stylelint --fix --syntax css src/**/*.css",
     "lint": "eslint --ext .js --ext .jsx --fix ./src",
     "format": "prettier \"src/**/*.{js,jsx,yml,yaml,ts,tsx,md,graphql,mdx}\" --write",
-    "format:styles": "prettier \"src/**/*.{scss,sass,less,css}\" --parser=css postcss --write",
+    "format:styles": "prettier \"src/**/*.{scss,sass,less,css}\" --parser css --write",
     "precommit": "lint-staged"
   },
   "eslintConfig": {
