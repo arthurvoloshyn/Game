@@ -5,6 +5,16 @@ const yellow = 'rgb(255, 215, 18)';
 const white = 'rgb(255, 255, 255)';
 
 export class TopNumber extends Component {
+  static propTypes = {
+    number: PropTypes.number,
+    game: PropTypes.bool
+  };
+
+  static defaultProps = {
+    number: 0,
+    game: false
+  };
+
   state = { highest: 0 };
 
   UNSAFE_componentWillUpdate({ game }) {
@@ -35,13 +45,3 @@ export class TopNumber extends Component {
     return <h1>Top Number: {highest}</h1>;
   }
 }
-
-TopNumber.propTypes = {
-  number: PropTypes.number,
-  game: PropTypes.bool
-};
-
-TopNumber.defaultProps = {
-  number: 0,
-  game: false
-};
