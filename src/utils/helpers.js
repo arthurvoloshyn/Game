@@ -1,10 +1,10 @@
 export const random = (min, max) => {
-  const r = Math.random();
-  return Math.floor(r * (max - min) + min);
+  const randomVal = Math.random();
+  return Math.floor(randomVal * (max - min) + min);
 };
 
-export const exists = x => {
-  if (x != null) return x;
+export const exists = val => {
+  if (val != null) return val;
 };
 
 export const clone = obj => {
